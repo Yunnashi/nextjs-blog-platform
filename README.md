@@ -292,7 +292,7 @@ pnpm db:seed
 pnpm dev
 ```
 
-- App: `http://localhost:3000`
+- App: `http://localhost:3888`
 - PostgreSQL: Docker Composeで起動するlocal service
 
 ## License
