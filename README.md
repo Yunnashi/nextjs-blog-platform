@@ -2,7 +2,7 @@
 
 > A design-led publishing platform built with the Next.js App Router, PostgreSQL, Prisma, and a deliberately scoped Redux admin workspace.
 
-`nextjs-blog-platform` は、完成版MERN Blogの画面・機能を参考に、Next.js App Routerで再設計・実装するポートフォリオプロジェクトです。このディレクトリを独立したGitHubリポジトリとして使用します。
+`nextjs-blog-platform` は、Next.js App Routerで設計・実装するポートフォリオプロジェクトです。
 
 ## Project status
 
@@ -22,13 +22,12 @@
 - [Architecture](docs/ARCHITECTURE.md)
 - [Architecture decisions](docs/DECISIONS.md)
 
-参考版から引き継ぐのは、Home、検索、記事詳細、認証、コメント、プロフィール、記事管理、ユーザー管理、コメント管理、dark modeなどのプロダクト体験です。React SPA、Express、MongoDB、client-side fetchingの実装は移植せず、Next.js App Router向けに再設計します。
 
 ## Project objective
 
-目標は、単にブログをNext.jsで作り直すことではありません。
+目標は、単にブログをNext.jsで作ることではありません。
 
-> 5年のフロントエンド経験にふさわしい、設計判断、UI品質、アクセシビリティ、テスト、パフォーマンスを説明できる完成品を作る。バックエンドはNext.jsのserver-side機能、Prisma、PostgreSQLで成立させる。
+> 5年+のフロントエンド経験にふさわしい、設計判断、UI品質、アクセシビリティ、テスト、パフォーマンスを説明できる完成品を作る。バックエンドはNext.jsのserver-side機能、Prisma、PostgreSQLで成立させる。
 
 重点配分：
 
@@ -100,7 +99,7 @@ flowchart TD
 - 同一repository / deployment内で型、cache invalidation、認証を管理できる
 - Next.jsのserver-side機能を深く学ぶという目的に合う
 
-Service / Use CaseとDALを分けることで、Next.jsのfile conventionにbusiness ruleやPrisma queryを散らしません。
+Service / Use CaseとDALを分けることで、Next.jsのfile conventionにbusiness ruleやPrisma queryを分散させない。
 
 ## Technology choices
 
@@ -168,7 +167,7 @@ Redux Providerはroot layoutではなく、原則として`/admin` subtreeに限
 
 Reduxに保存しないもの：
 
-- session token / authenticated userの正本
+- session token / authenticated user
 - 公開記事一覧
 - URLで表現できる検索条件
 - Prisma result全体
