@@ -13,16 +13,6 @@
 - Design: `TBD`
 - Target development period: 4 weeks / 120 focused hours
 
-## Source of reference
-
-画面、機能、ユーザーフローは、現在の参考プロジェクト資料を基準にしています。
-
-- [Reference project audit](docs/REFERENCE_AUDIT.md)
-- [Product specification](docs/PRODUCT_SPEC.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Architecture decisions](docs/DECISIONS.md)
-
-
 ## Project objective
 
 目標は、単にブログをNext.jsで作ることではありません。
@@ -298,3 +288,12 @@ pnpm dev
 ## License
 
 TBD
+
+## Source of reference
+
+画面、機能、ユーザーフローは、現在の参考プロジェクト資料を基準にしています。
+
+- [Reference project audit](docs/REFERENCE_AUDIT.md)
+- [Product specification](docs/PRODUCT_SPEC.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Architecture decisions](docs/DECISIONS.md)
