@@ -338,7 +338,25 @@ type ActionResult<T> =
 
 expected errorはfield / form errorとして表示し、unexpected errorはerror boundaryとserver logへ送ります。DB詳細、stack、secretをclientへ返しません。
 
-## 13. Deployment
+## 13. Environments and deployment
+
+### Local development
+
+```text
+Host machine
+├── Next.js (`pnpm dev`)
+├── Prisma CLI / migration / seed
+└── Docker Compose
+    └── PostgreSQL
+```
+
+- ローカルのPostgreSQLは`compose.yml`で起動する
+- PostgreSQL image version、port、database name、health check、persistent volumeをComposeで管理する
+- Next.jsはcontainer化せず、ホスト上で起動して開発時のfeedback loopを短くする
+- integration test用databaseはdevelopment databaseと分離する
+- `.env.example`には接続形式だけを記載し、credentialはcommitしない
+
+### Production
 
 ```text
 CDN / Next.js runtime
@@ -350,5 +368,4 @@ CDN / Next.js runtime
 └── object storage
 ```
 
-webとbackendを別serviceに分けないためCORSは通常不要です。databaseとNext.js runtimeは同一regionを優先し、migrationはdeploy前後の専用jobで実行します。
-
+本番ではDocker Composeを使用せず、managed PostgreSQLを採用します。webとbackendを別serviceに分けないためCORSは通常不要です。databaseとNext.js runtimeは同一regionを優先し、migrationはdeploy前後の専用jobで実行します。

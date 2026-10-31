@@ -108,6 +108,7 @@ Service / Use CaseとDALを分けることで、Next.jsのfile conventionにbusi
 | Framework | Next.js App Router + TypeScript | Server Components、Actions、Route Handlers、metadata、streamingを一つの構成で学ぶ |
 | Client state | Redux Toolkit | 管理画面のeditor workflowと横断UI stateを明示的に管理する |
 | Database | PostgreSQL | relation、constraint、transaction、index、searchを設計として示す |
+| Local database runtime | Docker Compose | PostgreSQLのversionと初期設定を固定し、開発環境を再現可能にする |
 | ORM | Prisma | typed query、migration、schema review |
 | Validation | Zod | Server Action / Route Handlerのuntrusted inputをserver-sideで検証する |
 | Forms | React Hook Form | client validationとaccessible form state。serverでも必ず再検証する |
@@ -230,6 +231,7 @@ HTTP endpointが必要な処理だけ：
 ├── tests/
 │   ├── integration/
 │   └── e2e/
+├── compose.yml
 ├── docs/
 │   ├── adr/
 │   └── measurements/
@@ -278,6 +280,8 @@ Author sign in
 
 ## Local development placeholder
 
+ローカルのPostgreSQLはDocker Composeで起動します。Next.jsはcontainerへ入れず、ホスト上で`pnpm dev`を実行します。本番環境ではmanaged PostgreSQLを使用します。
+
 実装後、clean checkoutで確認したcommandだけを確定します。
 
 ```bash
@@ -289,6 +293,7 @@ pnpm dev
 ```
 
 - App: `http://localhost:3000`
+- PostgreSQL: Docker Composeで起動するlocal service
 
 ## License
 

@@ -121,6 +121,8 @@ Next.js App Router
 
 **実装**
 
+- `compose.yml`でversion固定したPostgreSQL、health check、persistent volumeを定義
+- development / integration test databaseを分離し、`.env.example`へ接続形式を記載
 - `User`、`Post`、`Category`、`Tag`とrelation / unique constraint / indexを設計
 - 初回migration、seed、Prisma client lifecycle
 - `server-only` DALと、UIへ返すsafe DTO

@@ -48,11 +48,11 @@
 
 **Status:** Accepted
 
-**Decision:** relation / constraintはPostgreSQLをsource of truthとし、Prismaをapplication data accessとmigration workflowに使用する。
+**Decision:** relation / constraintはPostgreSQLをsource of truthとし、Prismaをapplication data accessとmigration workflowに使用する。ローカルのPostgreSQLはDocker Composeで起動し、本番はmanaged PostgreSQLを使用する。
 
 **Why:** 参考版でstringだったrelationをforeign keyとcomposite constraintで保証し、index / transactionを説明できる。
 
-**Consequences:** generated migrationをreviewする。extensionや特殊indexはcustom SQL migrationが必要になる。
+**Consequences:** `compose.yml`でPostgreSQL version、health check、volumeを管理する。Next.jsはローカルではホスト上で起動する。generated migrationをreviewし、extensionや特殊indexにはcustom SQL migrationを使用する。
 
 ## ADR-006: Store article content as Markdown
 
@@ -93,4 +93,3 @@
 **Why:** 検索基盤を先に複雑化せず、改善をbefore / afterで示せる。
 
 **Consequences:** 初期searchがlarge datasetで遅い可能性がある。性能budgetを超えた時点でmeasurementとADRを更新する。
-
