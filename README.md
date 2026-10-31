@@ -9,7 +9,7 @@
 **Planning complete / implementation not started**
 
 - Demo: `TBD`
-- Repository: `TBD`
+- Repository: [github.com/Yunnashi/nextjs-blog-platform](https://github.com/Yunnashi/nextjs-blog-platform)
 - Design: `TBD`
 - Target development period: 4 weeks / 120 focused hours
 
