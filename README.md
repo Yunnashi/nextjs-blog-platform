@@ -4,6 +4,12 @@
 
 `nextjs-blog-platform` は、Next.js App Routerで設計・実装するポートフォリオプロジェクトです。
 
+## はじめて見る方へ
+
+このシステムが「誰のための、どのようなプロダクトか」を知りたい場合は、まず **[プロダクト仕様書を読む](docs/PRODUCT_SPEC.md)** をご覧ください。
+
+対象ユーザー、提供する体験、画面ごとの要件、主要なユーザーフロー、品質基準まで、システムの全体像をまとめています。
+
 ## Project status
 
 **Planning complete / implementation not started**
@@ -12,6 +18,15 @@
 - Repository: [github.com/Yunnashi/nextjs-blog-platform](https://github.com/Yunnashi/nextjs-blog-platform)
 - Design: `TBD`
 - Target development period: 4 weeks / 120 focused hours
+
+## Documentation
+
+目的に応じて、以下の資料を参照してください。
+
+- **[Product specification](docs/PRODUCT_SPEC.md)** — プロダクトの目的、対象ユーザー、機能、画面要件を知る
+- [Reference project audit](docs/REFERENCE_AUDIT.md)
+- [Architecture](docs/ARCHITECTURE.md) — システム構成と責務の分け方を知る
+- [Architecture decisions](docs/DECISIONS.md) — 主要な技術選定の理由を知る
 
 ## Project objective
 
