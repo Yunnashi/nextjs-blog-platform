@@ -1,16 +1,6 @@
 # System design specification
 
-## 1. Purpose
-
-参考MERN Blogの画面と機能を、新しいNext.js App Router構成で再設計するための実装基準です。
-
-参照元：
-
-- [Reference project audit](REFERENCE_AUDIT.md)
-- [Product specification](PRODUCT_SPEC.md)
-- [Architecture and data design](ARCHITECTURE.md)
-
-## 2. Scope
+## 1. Scope
 
 ### MVP
 
@@ -32,7 +22,7 @@
 - autosave / editor history
 - advanced search / performance experiment
 
-## 3. Route design
+## 2. Route design
 
 ```text
 src/app/
@@ -62,7 +52,7 @@ src/app/
 └── layout.tsx
 ```
 
-## 4. Screen specification
+## 3. Screen specification
 
 | Screen | Reference | New rendering | Main change |
 |---|---|---|---|
@@ -77,7 +67,7 @@ src/app/
 
 詳細UI要件は [Product specification](PRODUCT_SPEC.md) を参照してください。
 
-## 5. Admin composition
+## 4. Admin composition
 
 ```mermaid
 flowchart TD
@@ -95,7 +85,7 @@ flowchart TD
 
 serverから渡すinitial draftは必要なfieldだけserializeし、Provider initializationで一度だけReduxへ取り込みます。route navigationで別draftへ移動した場合のstore reset policyをtestします。
 
-## 6. Feature modules
+## 5. Feature modules
 
 ```text
 src/features/articles/
@@ -134,7 +124,7 @@ UI / Action / Route Handler
 
 下位layerから上位layerをimportしません。
 
-## 7. Core use cases
+## 6. Core use cases
 
 | Use Case | Input | Authorization | Output |
 |---|---|---|---|
@@ -150,14 +140,14 @@ UI / Action / Route Handler
 
 concurrent editor updateには`updatedAt`またはversion fieldを使い、古いdraftで上書きする場合は409相当のconflictを返します。
 
-## 8. Validation policy
+## 7. Validation policy
 
 - Client: 即時feedback。security boundaryではない。
 - Server Action / Route Handler: Zodで全inputを再検証。
 - Use Case: role、ownership、state transitionなどbusiness rule。
 - Database: unique、not null、foreign key、composite constraint。
 
-## 9. State transitions
+## 8. State transitions
 
 ```mermaid
 stateDiagram-v2
@@ -171,7 +161,7 @@ stateDiagram-v2
 
 初回publishで`publishedAt`を設定し、通常のupdateでは保持します。再公開policyは実装前にADRで確定します。
 
-## 10. Test design
+## 9. Test design
 
 ### Unit
 
@@ -201,7 +191,7 @@ stateDiagram-v2
 4. reader comment → owner delete
 5. unauthorized admin access rejection
 
-## 11. Definition of done
+## 10. Definition of done
 
 - acceptance criteriaを満たす
 - loading / empty / error / successを確認
